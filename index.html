@@ -1081,12 +1081,7 @@
             </div>
 
             <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch">
-              <form
-                action="forms/contact.php"
-                method="post"
-                role="form"
-                class="php-email-form"
-              >
+              <form id="contact-form" role="form" class="php-email-form">
                 <div class="row">
                   <div class="form-group col-md-6">
                     <label for="name">Your Name</label>
@@ -1099,7 +1094,7 @@
                     />
                   </div>
                   <div class="form-group col-md-6">
-                    <label for="name">Your Email</label>
+                    <label for="email">Your Email</label>
                     <input
                       type="email"
                       class="form-control"
@@ -1110,7 +1105,7 @@
                   </div>
                 </div>
                 <div class="form-group">
-                  <label for="name">Subject</label>
+                  <label for="subject">Subject</label>
                   <input
                     type="text"
                     class="form-control"
@@ -1120,20 +1115,14 @@
                   />
                 </div>
                 <div class="form-group">
-                  <label for="name">Message</label>
+                  <label for="message">Message</label>
                   <textarea
                     class="form-control"
                     name="message"
+                    id="message"
                     rows="10"
                     required
                   ></textarea>
-                </div>
-                <div class="my-3">
-                  <div class="loading">Loading</div>
-                  <div class="error-message"></div>
-                  <div class="sent-message">
-                    Your message has been sent. Thank you!
-                  </div>
                 </div>
                 <div class="text-center">
                   <button type="submit">Send Message</button>
@@ -1176,7 +1165,24 @@
     <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
     <script src="assets/vendor/typed.js/typed.min.js"></script>
     <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
-    <script src="assets/vendor/php-email-form/validate.js"></script>
+    <script>
+      // No backend: open the visitor's mail app with the message filled in.
+      document
+        .getElementById("contact-form")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+          var f = e.target;
+          var body =
+            f.message.value + "
+
+" + f.name.value + " <" + f.email.value + ">";
+          window.location.href =
+            "mailto:IvanKuper7@gmail.com?subject=" +
+            encodeURIComponent(f.subject.value) +
+            "&body=" +
+            encodeURIComponent(body);
+        });
+    </script>
 
     <!-- Template Main JS File -->
     <script src="assets/js/main.js"></script>
