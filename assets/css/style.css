@@ -265,6 +265,13 @@ h6 {
   position: relative;
 }
 
+/* hero sits outside #main, so keep it clear of the fixed 300px side menu */
+@media (min-width: 1200px) {
+  #hero {
+    padding-left: 300px;
+  }
+}
+
 #hero:before {
   content: "";
   position: absolute;
