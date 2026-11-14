@@ -190,6 +190,7 @@ p { margin: 0 0 14px; color: var(--ink-soft); }
 .btn.ghost { background: transparent; color: var(--ink); border-color: var(--line); }
 a:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
 .small { margin: 12px 0 0; font-size: 0.85rem; }
+.small a { display: inline-block; padding: 8px 0; }
 
 .grid {
   list-style: none;
