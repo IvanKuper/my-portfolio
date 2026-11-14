@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://ivankuper.netlify.app/sitemap.xml
